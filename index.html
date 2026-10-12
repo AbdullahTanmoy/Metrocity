@@ -1,33 +1,41 @@
 <!doctype html>
 <html lang="bn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Metro City</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metro City</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Space+Grotesk:wght@300..700&display=swap"
+    rel="stylesheet" />
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/Custom.css" />
-  </head>
-  <body>
-    <!-- ===== PRELOADER ===== -->
-    <!-- <div
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/Custom.css" />
+</head>
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<body>
+  <!-- ===== PRELOADER ===== -->
+  <!-- <div
       id="preloader"
       class="fixed inset-0 z-[99999] bg-navy flex flex-col items-center justify-center transition-opacity duration-800 hidden"
     >
@@ -36,403 +44,970 @@
       ></div>
       <p class="text-white/60 text-sm mt-4 font-bangla">loading</p>
     </div> -->
-    <!-- ===== CUSTOM CURSOR ====== -->
-    <div class="cursor-dot hidden lg:block"></div>
-    <div class="cursor-ring hidden lg:block"></div>
-    <!-- ===== NAVBAR ===== -->
-    <header
-      id="navbar"
-      class="fixed top-1 lg:top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[1660px]"
-    >
-      <nav
-        class=" rounded-2xl lg:rounded-full px-6 md:px-10 py-3 md:py-4 flex items-center justify-between"
-      >
-        <!-- Logo -->
-        <a href="#" class="flex items-center gap-2 group shrink-0">
-          <img
-            src="images/logo.png"
-            alt="Purbachal Royal City Logo"
-            class="h-8 md:h-11 w-auto transition-transform duration-300 group-hover:scale-105"
-          />
+  <!-- ===== CUSTOM CURSOR ====== -->
+  <div class="cursor-dot hidden lg:block"></div>
+  <div class="cursor-ring hidden lg:block"></div>
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar" class="fixed top-1 lg:top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[1660px]">
+    <nav
+      class=" rounded-2xl lg:rounded-full px-6 md:px-10 py-3 md:py-4 flex items-center justify-between transition-all duration-300">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group shrink-0">
+        <img src="images/logo.png" alt="Metro City Dhaka Logo"
+          class="logo-light h-8 md:h-11 w-auto transition-transform duration-300 group-hover:scale-105" />
+        <img src="images/logo-dark.png" alt="Metro City Dhaka Logo"
+          class="logo-dark h-8 md:h-11 w-auto transition-transform duration-300 group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-1">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="pages/about.html" class="nav-link">About</a>
+        <a href="#plots" class="nav-link">Plots</a>
+        <a href="#master-plan" class="nav-link">Master Plan</a>
+        <a href="#lifestyle" class="nav-link">Lifestyle</a>
+        <a href="pages/contact.html" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Right Actions -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="tel:+8802222274358"
+          class="hidden lg:inline-flex items-center gap-2 btn bg-white text-[#262B86] px-8 py-4 text-sm">
+          <span>Book Now</span>
+          <i class="fa-solid fa-arrow-right-long"></i>
         </a>
+        <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 text-white cursor-pointer"
+          aria-label="Toggle menu">
+          <span class="block w-6 h-0.5 bg-navy transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-navy transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-navy transition-all duration-300"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-        <!-- Desktop Menu -->
-        <div class="hidden lg:flex items-center gap-1">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="pages/about.html" class="nav-link">About</a>
-          <a href="#plots" class="nav-link">Plots</a>
-          <a href="#master-plan" class="nav-link">Master Plan</a>
-          <a href="#lifestyle" class="nav-link">Lifestyle</a>
-          <a href="pages/contact.html" class="nav-link">Contact</a>
-        </div>
-
-        <!-- Right Actions -->
-        <div class="flex items-center gap-3 shrink-0">
-          <a
-            href="tel:+8802222274358"
-            class="hidden lg:inline-flex items-center gap-2 btn bg-white text-[#262B86] px-8 py-4 text-sm"
-          >
-            <span>Book Now</span>
-            <i class="fa-solid fa-arrow-right-long"></i>
-          </a>
-          <button
-            id="hamburger"
-            class="lg:hidden flex flex-col gap-1.5 p-2 text-white cursor-pointer"
-            aria-label="Toggle menu"
-          >
-            <span
-              class="block w-6 h-0.5 bg-navy transition-all duration-300"
-            ></span>
-            <span
-              class="block w-6 h-0.5 bg-navy transition-all duration-300"
-            ></span>
-            <span
-              class="block w-6 h-0.5 bg-navy transition-all duration-300"
-            ></span>
+  <!-- ===== MOBILE MENU (Full-Screen) ===== -->
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] lg:hidden">
+    <div
+      class="mobile-menu-overlay absolute inset-0 bg-navy/60 opacity-0 pointer-events-none transition-opacity duration-500">
+    </div>
+    <div
+      class="mobile-menu-panel absolute inset-0 bg-white transform translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+      <div class="flex flex-col h-full">
+        <!-- Panel Header -->
+        <div class="flex items-center justify-between px-6 md:px-10 py-5 border-b border-[#E5E5E5]">
+          <img src="images/logo.png" alt="Logo" class="h-9 w-auto" />
+          <button id="mobile-close"
+            class="w-10 h-10 rounded-full bg-[#F7F7F5] flex items-center justify-center text-navy hover:bg-[#E5E5E5] transition-colors duration-300">
+            <i class="fas fa-times text-base"></i>
           </button>
         </div>
-      </nav>
-    </header>
 
-    <!-- ===== MOBILE MENU (Full-Screen) ===== -->
-    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] lg:hidden">
-      <div
-        class="mobile-menu-overlay absolute inset-0 bg-navy/60 opacity-0 pointer-events-none transition-opacity duration-500"
-      ></div>
-      <div
-        class="mobile-menu-panel absolute inset-0 bg-white transform translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-      >
-        <div class="flex flex-col h-full">
-          <!-- Panel Header -->
-          <div
-            class="flex items-center justify-between px-6 md:px-10 py-5 border-b border-[#E5E5E5]"
-          >
-            <img
-              src="images/logo.png"
-              alt="Logo"
-              class="h-9 w-auto"
-            />
-            <button
-              id="mobile-close"
-              class="w-10 h-10 rounded-full bg-[#F7F7F5] flex items-center justify-center text-navy hover:bg-[#E5E5E5] transition-colors duration-300"
-            >
-              <i class="fas fa-times text-base"></i>
-            </button>
-          </div>
+        <!-- Menu Links - Centered -->
+        <div class="flex-1 flex items-center justify-center overflow-y-auto px-6 md:px-10">
+          <ul class="space-y-2 w-full max-w-md">
+            <li>
+              <a href="#home"
+                class="mobile-nav-link active block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center">Home</a>
+            </li>
+            <li>
+              <a href="./pages/about.html"
+                class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center">About</a>
+            </li>
+            <li>
+              <a href="#plots"
+                class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center">Plots</a>
+            </li>
+            <li>
+              <a href="#master-plan"
+                class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center">Master
+                Plan</a>
+            </li>
+            <li>
+              <a href="#lifestyle"
+                class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center">Lifestyle</a>
+            </li>
+            <li>
+              <a href="./pages/contact.html"
+                class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center">Contact</a>
+            </li>
+          </ul>
+        </div>
 
-          <!-- Menu Links - Centered -->
-          <div
-            class="flex-1 flex items-center justify-center overflow-y-auto px-6 md:px-10"
-          >
-            <ul class="space-y-2 w-full max-w-md">
-              <li>
-                <a
-                  href="#home"
-                  class="mobile-nav-link active block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./pages/about.html"
-                  class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center"
-                  >About</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#plots"
-                  class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center"
-                  >Plots</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#master-plan"
-                  class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center"
-                  >Master Plan</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#lifestyle"
-                  class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center"
-                  >Lifestyle</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./pages/contact.html"
-                  class="mobile-nav-link block px-5 py-4 rounded-2xl text-navy font-bold text-lg md:text-xl hover:bg-[#E8F6ED] transition-all duration-300 text-center"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Panel Footer -->
-          <div class="px-6 md:px-10 py-6 border-t border-[#E5E5E5]">
-            <a
-              href="tel:+8802222274358"
-              class="flex items-center justify-center gap-2 btn btn-primary w-full py-4 text-base"
-            >
-              <i class="fas fa-phone text-sm"></i>
-              <span>02222-274358</span>
-            </a>
-            <p class="text-center text-[#777777] text-xs mt-4">
-              Purbachal Royal City
-            </p>
-          </div>
+        <!-- Panel Footer -->
+        <div class="px-6 md:px-10 py-6 border-t border-[#E5E5E5]">
+          <a href="tel:+8802222274358"
+            class="flex items-center justify-center gap-2 btn btn-primary w-full py-4 text-base">
+            <i class="fas fa-phone text-sm"></i>
+            <span>02222-274358</span>
+          </a>
+          <p class="text-center text-[#777777] text-xs mt-4">
+            Purbachal Royal City
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="relative w-full min-h-screen overflow-hidden">
-      <!-- Background Image Slider -->
-      <div id="hero-slider" class="absolute inset-0">
-        <div
-          class="hero-slide hero-slide-active"
-          style="
+  <!-- ===== HERO SECTION ===== -->
+  <section class="relative w-full min-h-screen overflow-hidden">
+    <!-- Background Image Slider -->
+    <div id="hero-slider" class="absolute inset-0">
+      <div class="hero-slide hero-slide-active" style="
             background-image: url(&quot;images/hero-banner.jpeg&quot;);
-          "
-        ></div>
-        <div
-          class="hero-slide"
-          style="
+          "></div>
+      <div class="hero-slide" style="
             background-image: url(&quot;images/hero-banner2.jpeg&quot;);
-          "
-        ></div>
-        <div
-          class="hero-slide"
-          style="
+          "></div>
+      <div class="hero-slide" style="
             background-image: url(&quot;images/hero-banner3.png&quot;);
-          "
-        ></div>
-        <div
-          class="hero-slide"
-          style="
+          "></div>
+      <div class="hero-slide" style="
             background-image: url(&quot;images/hero-banner4.jpeg&quot;);
-          "
-        ></div>
-      </div>
+          "></div>
+    </div>
 
-      <!-- Full-Section Dark Overlay (covers the entire hero, above the background) -->
-      <div class="absolute inset-0 z-[2] pointer-events-none bg-[#262B86]/55 md:bg-transparent md:bg-gradient-to-r md:from-[#262B86]/90 md:via-[#262B86]/55 md:via-35% md:to-black/10"></div>
+    <!-- Full-Section Dark Overlay (covers the entire hero, above the background) -->
+    <div
+      class="absolute inset-0 z-[2] pointer-events-none bg-[#262B86]/55 md:bg-transparent md:bg-gradient-to-r md:from-[#262B86]/90 md:via-[#262B86]/55 md:via-35% md:to-black/10">
+    </div>
 
-      <!-- Hero Content -->
-      <div
-        class="relative z-10 container mx-auto px-4 md:px-16 pt-20 md:pt-40 pb-16 md:pb-20 min-h-screen flex flex-col justify-center"
-      >
-        <div class="max-w-4xl">
-          
+    <!-- Hero Content -->
+    <div
+      class="relative z-10 container mx-auto px-4 md:px-16 pt-20 md:pt-40 pb-16 md:pb-20 min-h-screen flex flex-col justify-center">
+      <div class="max-w-4xl">
 
-          <!-- Title -->
-          <h1
-            class="hero-title text-white font-cormorant font-bold lg:text-7xl leading-[1.1] mb-3 md:mb-6"
-          >
-            <span class="">Find Your place in a </span>
-            <br class="hidden sm:block" />
-            <span class="">Better-Planned Future</span>
-          </h1>
 
-          <!-- Subtitle -->
-          <p
-            class="font-space text-white/80 text-[14px] md:text-xl max-w-2xl mb-6 md:mb-10 leading-relaxed"
-          >
-            Explore planned communities, available plots and modern lifestyle opportunities at Metro City Dhaka.
-          </p>
+        <!-- Title -->
+        <h1 class="hero-title text-white font-cormorant font-bold lg:text-7xl leading-[1.1] mb-3 md:mb-6">
+          <span class="">Find Your place in a </span>
+          <br class="hidden sm:block" />
+          <span class="">Better-Planned Future</span>
+        </h1>
 
-          <!-- Buttons -->
-          <div class="flex flex-wrap gap-4 font-space">
-            <a
-            href="tel:+8802222274358"
-            class="hidden lg:inline-flex items-center gap-2 btn bg-white text-[#262B86] px-8 py-4 text-sm"
-          >
+        <!-- Subtitle -->
+        <p class="font-space text-white/80 text-[14px] md:text-xl max-w-2xl mb-6 md:mb-10 leading-relaxed">
+          Explore planned communities, available plots and modern lifestyle opportunities at Metro City Dhaka.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap gap-4 font-space">
+          <a href="tel:+8802222274358"
+            class="hidden lg:inline-flex items-center gap-2 btn bg-white text-[#262B86] px-8 py-4 text-sm">
             <span>Explore Projects</span>
             <i class="fa-solid fa-arrow-right-long"></i>
           </a>
-            
-          </div>
+
         </div>
-        <div class="max-w-6xl p-0 xl:pl-[100px]">
-          <!-- Stats Bar -->
-          <div
-            class="mt-10 md:mt-20 border border-[#E8F6ED] rounded-lg p-6 md:p-8 flex flex-wrap items-center justify-around gap-4"
-          >
-            <div class="text-center">
-              <div
-                class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider"
-              >
-                03
-              </div>
-              <div class="text-white font-bold text-sm md:text-base">
-                Total Projects
-              </div>
+      </div>
+      <div class="max-w-6xl p-0 xl:pl-[100px]">
+        <!-- Stats Bar -->
+        <div
+          class="mt-10 md:mt-20 border border-[#E8F6ED] rounded-lg p-6 md:p-8 flex flex-wrap items-center justify-around gap-4">
+          <div class="text-center">
+            <div class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider">
+              03
             </div>
-            <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
-            <div class="text-center">
-              <div
-                class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider"
-              >
-                184+
-              </div>
-              <div class="text-white font-bold text-sm md:text-base">
-                Total Plots
-              </div>
+            <div class="text-white font-bold text-sm md:text-base">
+              Total Projects
             </div>
-            <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
-            <div class="text-center">
-              <div
-                class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider"
-              >
-                1,260+
-              </div>
-              <div class="text-white font-bold text-sm md:text-base">
-               Sold Plots
-              </div>
+          </div>
+          <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
+          <div class="text-center">
+            <div class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider">
+              184+
             </div>
-             <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
-            <div class="text-center">
-              <div
-                class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider"
-              >
-                950+
-              </div>
-              <div class="text-white font-bold text-sm md:text-base">
-               Happy Clients
-              </div>
-             </div>
-              <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
-               <div class="text-center">
-              <div
-                class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider"
-              >
-                15+
-              </div>
-              <div class="text-white font-bold text-sm md:text-base">
-                Years of Experience
-              </div>
-             </div>
+            <div class="text-white font-bold text-sm md:text-base">
+              Total Plots
+            </div>
+          </div>
+          <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
+          <div class="text-center">
+            <div class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider">
+              1,260+
+            </div>
+            <div class="text-white font-bold text-sm md:text-base">
+              Sold Plots
+            </div>
+          </div>
+          <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
+          <div class="text-center">
+            <div class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider">
+              950+
+            </div>
+            <div class="text-white font-bold text-sm md:text-base">
+              Happy Clients
+            </div>
+          </div>
+          <div class="hidden md:block w-px h-12 bg-[#E8F6ED]"></div>
+          <div class="text-center">
+            <div class="text-white font-space font-bold text-3xl md:text-4xl tracking-wider">
+              15+
+            </div>
+            <div class="text-white font-bold text-sm md:text-base">
+              Years of Experience
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Carousel Dots -->
-      <div
-        class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3"
-      >
-        <button
-          class="hero-dot hero-dot-active"
-          data-slide="0"
-          aria-label="Slide 1"
-        ></button>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3">
+        <button class="hero-dot hero-dot-active" data-slide="0" aria-label="Slide 1"></button>
         <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
         <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
         <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
       </div>
-    </section>
+  </section>
 
-   
 
-    <!-- ===== FOOTER ===== -->
-    <footer
-      class="bg-white border-t border-[#E5E5E5] pt-12 pb-6 px-6 md:px-16 lg:px-24"
-    >
-      <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          <!-- Brand -->
-          <div>
-            <div class="flex items-center gap-3 mb-4">
-              <img
-                src="assets/images/logo/R_City_logo.svg"
-                alt="Purbachal Royal City Logo"
-                class="h-9 w-auto"
-              />
-            </div>
-            <p class="text-[#828282] text-sm leading-relaxed">
-              A data-driven view into Purbachal Royal City's plots, projects,
-              and payment plans.
-            </p>
+  <!-- ================= ABOUT THE PROJECT ================= -->
+  <section id="about" class="relative w-full min-h-[640px] md:min-h-screen overflow-hidden ">
+    <!-- Background image -->
+    <img src="images/aboutsection.png" alt="Metro City Dhaka" class="absolute inset-0 h-full w-full object-cover" />
+
+    <!-- Overlay: upore halka white, niche black (mobile e ektu beshi dark) -->
+    <div
+      class="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-b from-white/10 via-black/90 via-50% to-black md:via-black/95">
+    </div>
+
+    <!-- Content -->
+    <div
+      class="relative z-10 container mx-auto flex min-h-[640px] flex-col justify-center px-4 md:px-16 pt-20 md:pt-40 pb-16 md:pb-20 md:min-h-screen ">
+      <div class="max-w-full sm:max-w-md lg:max-w-[460px]">
+        <!-- Eyebrow -->
+        <div class="mb-2 flex items-center gap-2 sm:mb-3 sm:gap-3">
+          <span class="h-px w-8 bg-white/60 sm:w-12"></span>
+          <span
+            class="font-mono text-[9px] uppercase tracking-[0.2em] text-white/80 sm:text-[10px] sm:tracking-[0.25em]">
+            About the project
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h2
+          class="mb-4 font-['Cormorant_Garamond'] text-3xl font-bold leading-tight text-white sm:mb-5 sm:text-4xl lg:mb-6 lg:text-5xl">
+          About the Project
+        </h2>
+
+        <!-- Paragraph -->
+        <p
+          class="mb-6 font-['Space_Grotesk'] text-[13px] leading-[22px] text-white/90 sm:mb-8 sm:text-[14px] sm:leading-[26px]">
+          Metro City Dhaka is a planned residential and commercial land
+          development by Fanam Landmark Ltd., located in Sreenagar beside the
+          Dhaka–Padma Bridge Expressway. Its layout plan was prepared under the
+          Land Development Rules (Amended 2015) with advice from urban planners
+          registered with the Bangladesh Institute of Planners (BIP). Situated
+          outside RAJUK and DAP jurisdiction and completely flood-free, the
+          project brings every modern urban amenity within reach.
+        </p>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ================= THE OFFERING ================= -->
+  <section id="offering" class="bg-white py-14 sm:py-20 lg:py-24">
+    <div class="container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+      <!-- items-stretch: duita div er height same hobe -->
+      <div class="grid grid-cols-1 items-stretch gap-8 sm:gap-10 lg:grid-cols-[5fr_7fr] lg:gap-12">
+
+        <!-- ========== 1st div ========== -->
+        <div class="flex h-full flex-col">
+          <!-- Eyebrow -->
+          <div class="mb-3 flex items-center gap-2 sm:gap-3">
+            <span class="h-px w-8 bg-[#262B86]/50 sm:w-12"></span>
+            <span
+              class="font-space text-[9px] uppercase tracking-[0.2em] text-[#262B86] sm:text-[10px] sm:tracking-[0.25em]">
+              The offering
+            </span>
           </div>
 
-          <!-- Platform -->
-          <div>
-            <h4
-              class="text-[#1D1D1D] text-xs font-bold uppercase tracking-wider mb-4"
-            >
-              Platform
-            </h4>
-            <ul class="space-y-2 text-[#828282] text-sm">
-              <li><a href="#" class="footer-link">Plots</a></li>
-              <li><a href="#" class="footer-link">Master Plan</a></li>
-              <li><a href="#" class="footer-link">Lifestyle</a></li>
-            </ul>
-          </div>
+          <!-- Title -->
+          <h2
+            class="mb-4 font-cormorant text-4xl font-bold leading-[1.1] text-slate-900 sm:mb-6 sm:text-5xl lg:text-6xl">
+            What the Project Offers
+          </h2>
 
-          <!-- Company -->
-          <div>
-            <h4
-              class="text-[#1D1D1D] text-xs font-bold uppercase tracking-wider mb-4"
-            >
-              Company
-            </h4>
-            <ul class="space-y-2 text-[#828282] text-sm">
-              <li><a href="#" class="footer-link">About</a></li>
-              <li><a href="#" class="footer-link">Gallery</a></li>
-              <li><a href="#" class="footer-link">Contact</a></li>
-            </ul>
-          </div>
+          <!-- Paragraph -->
+          <p class="mb-8 max-w-md font-space text-sm leading-7 text-slate-600 sm:mb-10 sm:text-base sm:leading-8">
+            Every brochure point, numbered top to bottom — serviced plots,
+            internal roads, utilities and the amenities that come with them.
+          </p>
 
-          <!-- Legal -->
-          <div>
-            <h4
-              class="text-[#1D1D1D] text-xs font-bold uppercase tracking-wider mb-4"
-            >
-              Legal
-            </h4>
-            <ul class="space-y-2 text-[#828282] text-sm">
-              <li><a href="#" class="footer-link">FAQ</a></li>
-              <li><a href="#" class="footer-link">Privacy Policy</a></li>
-              <li><a href="#" class="footer-link">Terms & Conditions</a></li>
-            </ul>
+          <!-- Buttons -->
+          <div class="flex flex-wrap gap-3 sm:gap-4 font-space">
+            <a href="#projects"
+              class="inline-flex items-center gap-2 rounded-full bg-[#262B86] px-6 py-3 text-[13px] font-semibold text-white transition hover:bg-[#1e226b] sm:px-7 sm:py-3.5 sm:text-sm">
+
+              <span>Explore Projects</span>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+
+            <a href="brochure.pdf"
+              class="inline-flex items-center gap-2 rounded-full border border-[#262B86] bg-white px-6 py-3 text-[13px] font-semibold text-[#262B86] transition hover:bg-slate-50 sm:px-7 sm:py-3.5 sm:text-sm">
+
+              <span>Download Brochure</span>
+              <i class="fa-solid fa-download"></i>
+            </a>
           </div>
         </div>
 
-        <div
-          class="border-t border-[#333333] pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
-        >
-          <p class="text-[#8A8A88] text-xs">� 2026 Purbachal Royal City</p>
-          <div class="flex gap-4 text-[#8A8A88] text-sm items-center">
-            <a href="#" class="social-link inline-flex items-center gap-1.5"
-              ><i class="fab fa-facebook-f"></i> Facebook</a
-            >
-            <a href="#" class="social-link inline-flex items-center gap-1.5"
-              ><i class="fab fa-instagram"></i> Instagram</a
-            >
-            <a href="#" class="social-link inline-flex items-center gap-1.5"
-              ><i class="fab fa-linkedin-in"></i> LinkedIn</a
-            >
+        <!-- ========== 2nd div ========== -->
+        <div class="flex flex-col gap-4 sm:gap-5 overflow-y-auto lg:h-[490px] no-scrollbar">
+
+          <!-- Card 1 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              01
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                80ft Avenue &amp; Wide Roads
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                An 80-foot avenue road, with every internal plot fronting a 25-foot wide street.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-road"></i>
+            </div>
           </div>
+
+          <!-- Card 2 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              02
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                Natural Surroundings &amp; River
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                A natural environment with a sprawling river and riverside walkways.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-water"></i>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              03
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                Education &amp; Healthcare
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                Space has already been allocated for standard medical colleges, hospitals and universities of local and
+                international standing to raise the standard of education.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+          
+          <!-- Card 4 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              04
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                Market & Convention Center
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                Dedicated, allocated space for state-of-the-art markets, shopping malls and a
+convention center.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+          
+          <!-- Card 5 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              05
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                Market & Convention Center
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                Dedicated, allocated space for state-of-the-art markets, shopping malls and a
+convention center.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+          
+          <!-- Card 6 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              06
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                Market & Convention Center
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                Dedicated, allocated space for state-of-the-art markets, shopping malls and a
+convention center.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              07
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                Market & Convention Center
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                Dedicated, allocated space for state-of-the-art markets, shopping malls and a
+convention center.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div
+            class="flex shrink-0 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] sm:gap-5 sm:p-6">
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 font-mono text-[10px] text-slate-400 sm:h-12 sm:w-12">
+              08
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-['Cormorant_Garamond'] text-lg font-bold text-slate-900 sm:text-xl">
+                Market & Convention Center
+              </h3>
+              <p class="mt-1 max-w-md text-[13px] leading-5 text-slate-500 sm:mt-2 sm:text-sm sm:leading-6">
+                Dedicated, allocated space for state-of-the-art markets, shopping malls and a
+convention center.
+              </p>
+            </div>
+            <div
+              class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 p-2 text-sm text-slate-400 sm:h-12 sm:w-12 sm:p-3 sm:text-base">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+
         </div>
       </div>
-    </footer>
-    <!-- ===== FLOATING WHATSAPP ===== -->
-    <a
-      href="https://wa.me/8802222274358"
-      target="_blank"
-      class="whatsapp-float fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:bg-green-600 transition-all hover:scale-110 group"
-    >
-      <i class="fab fa-whatsapp"></i>
-      <span
-        class="whatsapp-tooltip absolute right-full mr-4 bg-navy text-white px-4 py-2 rounded-lg text-sm font-bangla whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-      >
-        ?????? ???? ??? ????
-      </span>
-    </a>
+    </div>
+  </section>
 
-    <!-- ===== SCRIPTS ===== -->
-    <script src="js/hero.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/hero-slider.js"></script>
-  </body>
+  <!-- ================= LOCATION MAP ================= -->
+  <section id="location"
+    class="relative bg-[#262B86] px-4 pb-10 pt-12 md:px-16 md:pb-12 md:pt-10 lg:flex lg:min-h-[calc(100vh-68px)] lg:flex-col">
+    <div class="container mx-auto lg:mb-6">
+      <h2 class="mb-3 font-cormorant text-3xl font-bold leading-tight text-white sm:mb-4 sm:text-4xl lg:text-5xl">
+        Project Location
+      </h2>
+      <p class="max-w-xl font-space text-sm leading-6 text-white sm:text-base sm:leading-7">
+        Over the past five years, land prices in this area have
+        <span class="block font-bold text-[#FFD60A]">increased 15-20 times.</span>
+      </p>
+    </div>
+
+    <div class="relative lg:flex lg:flex-1 lg:items-center lg:justify-end lg:px-8 lg:py-4">
+
+      <!-- Map (mobile/tablet e upore, laptop e pura background) -->
+      <div class="h-[320px]  sm:h-[350px] lg:absolute lg:inset-0 lg:h-full">
+        <iframe id="map-frame" src="https://maps.google.com/maps?q=Metro+City+Dhaka+Keyain&z=13&output=embed"
+          class="h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          title="Metro City Dhaka location"></iframe>
+      </div>
+
+      <!-- Location list (mobile/tablet e map er niche, laptop e dan pashe) -->
+      <div class="relative z-10 px-4 py-6 sm:px-6 sm:py-8 lg:w-[370px] lg:p-0">
+        <div class="flex flex-col gap-3 rounded-2xl bg-[#262B86] p-4 shadow-xl sm:gap-4 sm:p-6 lg:gap-2.5 lg:p-4">
+
+          <button type="button" data-place="Sadarghat Launch Terminal, Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-ship"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">Sadarghat</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">15
+              Minutes</span>
+          </button>
+
+          <button type="button" data-place="University of Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-graduation-cap"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">Dhaka
+                University</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">15
+              Minutes</span>
+          </button>
+
+          <button type="button" data-place="New Market, Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-store"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">New Market</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">25
+              Minutes</span>
+          </button>
+
+          <button type="button" data-place="Motijheel, Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-building-columns"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">Motijheel</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">25
+              Minutes</span>
+          </button>
+
+          <button type="button" data-place="Gulistan Zero Point, Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-location-dot"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">Dhaka Zero
+                Points</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">25
+              Minutes</span>
+          </button>
+
+          <button type="button" data-place="Kamalapur Railway Station, Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-train"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">Kamalapur Rail
+                Station</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">30
+              Minutes</span>
+          </button>
+
+          <button type="button" data-place="Dhanmondi, Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-city"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">Dhanmondi</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">30
+              Minutes</span>
+          </button>
+
+          <button type="button" data-place="RAJUK Jhilmil Residential Project, Dhaka"
+            class="place-btn flex w-full items-center justify-between gap-3 rounded-md bg-white px-3 py-3 text-left transition hover:bg-slate-100 sm:px-4">
+            <span class="flex items-center gap-3">
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#262B86] text-xs text-white sm:h-9 sm:w-9 sm:text-sm"><i
+                  class="fa-solid fa-house-chimney"></i></span>
+              <span class="font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">Rajuk Jhilmil
+                Project</span>
+            </span>
+            <span
+              class="whitespace-nowrap font-['Space_Grotesk'] text-[13px] font-semibold text-slate-800 sm:text-sm">30
+              Minutes</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+  <!-- ================= PLOTS ================= -->
+  <section id="plots" class="bg-white py-14 sm:py-20 lg:py-24">
+    <div class="container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+
+      <!-- Heading row -->
+      <div class="mb-8 flex items-end justify-between gap-4 sm:mb-12 lg:mb-14">
+        <div>
+          <div class="mb-3 flex items-center gap-2 sm:gap-3">
+            <span class="h-px w-8 bg-[#262B86]/50 sm:w-12"></span>
+            <span
+              class="font-space text-[9px] uppercase tracking-[0.2em] text-[#262B86] sm:text-[10px] sm:tracking-[0.25em]">
+              Availability
+            </span>
+          </div>
+          <h2
+            class="font-['Cormorant_Garamond'] text-4xl font-bold leading-tight text-slate-700 sm:text-5xl lg:text-6xl">
+            Plots
+          </h2>
+        </div>
+
+        <a href="#all-plots"
+          class="mb-1 inline-flex items-center gap-2 whitespace-nowrap font-space text-[11px] text-[#262B86] transition hover:opacity-70 sm:text-xs">
+          View All Plots <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Cards: grid er item gulo default e stretch hoy, tai row er height same -->
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
+
+        <!-- Card 1 -->
+        <article
+          class="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_4px_20px_rgba(15,23,42,0.06)] sm:p-3">
+          <div class="relative aspect-[7/6] overflow-hidden rounded-lg">
+            <img src="images/plot-1.jpeg" alt="Residential Plot 1" class="h-full w-full object-cover" />
+            <span
+              class="absolute left-0 top-0 bg-slate-100 px-2.5 py-1.5 font-mono text-[10px] text-slate-700">R-01</span>
+          </div>
+
+          <div class="flex flex-1 flex-col px-1 pb-1 pt-4 sm:pt-5">
+            <h3 class="font-cormorant text-xl font-bold text-[#262B86] sm:text-2xl">Residential Plot 1</h3>
+            <p class="mt-2 font-space text-[9px] uppercase tracking-[0.2em] text-slate-500 sm:text-[10px]">Residential
+            </p>
+
+            <!-- mt-auto: bottom part sobsomoy card er shesh e thakbe -->
+            <div class="mt-auto border-t border-slate-200 pt-3 sm:pt-4 font-space">
+              <p class="mt-1  text-xs text-slate-700 sm:text-[13px]">3 Katha</p>
+              <div class="mt-2 flex flex-wrap items-end justify-between gap-2">
+                <span class=" text-[13px] text-slate-800 sm:text-sm">৳7,500,000</span>
+                <a href="#"
+                  class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#262B86] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1e226b]">
+                  View Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article
+          class="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_4px_20px_rgba(15,23,42,0.06)] sm:p-3">
+          <div class="relative aspect-[7/6] overflow-hidden rounded-lg">
+            <img src="images/plot-2.jpeg" alt="Commercial Plot 1" class="h-full w-full object-cover" />
+            <span
+              class="absolute left-0 top-0 bg-slate-100 px-2.5 py-1.5 font-mono text-[10px] text-slate-700">C-01</span>
+          </div>
+
+          <div class="flex flex-1 flex-col px-1 pb-1 pt-4 sm:pt-5">
+            <h3 class="font-cormorant text-xl font-bold text-[#262B86] sm:text-2xl">Commercial Plot 1</h3>
+            <p class="mt-2 font-space text-[9px] uppercase tracking-[0.2em] text-slate-500 sm:text-[10px]">Commercial
+            </p>
+
+            <div class="mt-auto border-t border-slate-200 pt-3 sm:pt-4 font-space">
+              <p class="mt-1  text-xs text-slate-700 sm:text-[13px]">3 Katha</p>
+              <div class="mt-2 flex flex-wrap items-end justify-between gap-2">
+                <span class=" text-[13px] text-slate-800 sm:text-sm">৳18,500,000</span>
+                <a href="#"
+                  class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#262B86] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1e226b]">
+                  View Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article
+          class="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_4px_20px_rgba(15,23,42,0.06)] sm:p-3">
+          <div class="relative aspect-[7/6] overflow-hidden rounded-lg">
+            <img src="images/plot-3.jpeg" alt="Residential Plot 2" class="h-full w-full object-cover" />
+            <span
+              class="absolute left-0 top-0 bg-slate-100 px-2.5 py-1.5 font-mono text-[10px] text-slate-700">R-02</span>
+          </div>
+
+          <div class="flex flex-1 flex-col px-1 pb-1 pt-4 sm:pt-5">
+            <h3 class="font-cormorant text-xl font-bold text-[#262B86] sm:text-2xl">Residential Plot 2</h3>
+            <p class="mt-2 font-space text-[9px] uppercase tracking-[0.2em] text-slate-500 sm:text-[10px]">Residential
+            </p>
+
+            <div class="mt-auto border-t border-slate-200 pt-3 sm:pt-4 font-space">
+              <p class="mt-1  text-xs text-slate-700 sm:text-[13px]">5 Katha</p>
+              <div class="mt-2 flex flex-wrap items-end justify-between gap-2">
+                <span class=" text-[13px] text-slate-800 sm:text-sm">৳12,500,000</span>
+                <a href="#"
+                  class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#262B86] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1e226b]">
+                  View Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article
+          class="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-2.5 shadow-[0_4px_20px_rgba(15,23,42,0.06)] sm:p-3">
+          <div class="relative aspect-[7/6] overflow-hidden rounded-lg">
+            <img src="images/plot-4.jpeg" alt="Residential Plot 2" class="h-full w-full object-cover" />
+            <span
+              class="absolute left-0 top-0 bg-slate-100 px-2.5 py-1.5 font-mono text-[10px] text-slate-700">R-02</span>
+          </div>
+
+          <div class="flex flex-1 flex-col px-1 pb-1 pt-4 sm:pt-5">
+            <h3 class="font-cormorant text-xl font-bold text-[#262B86] sm:text-2xl">Residential Plot 2</h3>
+            <p class="mt-2 font-space text-[9px] uppercase tracking-[0.2em] text-slate-500 sm:text-[10px]">Residential
+            </p>
+
+            <div class="mt-auto border-t border-slate-200 pt-3 sm:pt-4 font-space">
+              <p class="mt-1  text-xs text-slate-700 sm:text-[13px]">2 Katha</p>
+              <div class="mt-2 flex flex-wrap items-end justify-between gap-2">
+                <span class=" text-[13px] text-slate-800 sm:text-sm">৳12,500,000</span>
+                <a href="#"
+                  class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#262B86] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1e226b]">
+                  View Details <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY SLIDER ================= -->
+  <section id="gallery" class="overflow-hidden bg-white py-10 sm:py-14 lg:py-16">
+    <div class="container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+
+      <!-- Heading row -->
+      <div class="mb-8 flex items-end justify-between gap-4 sm:mb-12 lg:mb-14">
+        <div>
+          <div class="mb-3 flex items-center gap-2 sm:gap-3">
+            <span class="h-px w-8 bg-[#262B86]/50 sm:w-12"></span>
+            <span
+              class="font-space text-[9px] uppercase tracking-[0.2em] text-[#262B86] sm:text-[10px] sm:tracking-[0.25em]">
+              Impressions
+            </span>
+          </div>
+          <h2
+            class="font-['Cormorant_Garamond'] text-4xl font-bold leading-tight text-slate-700 sm:text-5xl lg:text-6xl">
+            Gallery
+          </h2>
+        </div>
+
+        <a href="#all-plots"
+          class="mb-1 inline-flex items-center gap-2 whitespace-nowrap font-space text-[11px] text-[#262B86] transition hover:opacity-70 sm:text-xs">
+          View Full Gallery <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Mobile/tablet: normal grid | Laptop: curved slider -->
+      <div class="lg:-my-[54px] lg:scale-[.8] xl:-my-[27px] xl:scale-90 2xl:my-0 2xl:scale-100 xl:mr-[120px]">
+        <div id="gallery-track"
+          class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:relative lg:block lg:h-[540px] lg:[perspective:2000px]">
+
+          <!-- Slide 1 -->
+          <article
+            class="gallery-card relative aspect-[3/4] overflow-hidden rounded-[28px] lg:absolute lg:left-[calc(50%-179px)] lg:top-[27px] lg:aspect-auto lg:h-[485px] lg:w-[358px] lg:transition-[transform,opacity] lg:duration-700 lg:ease-in-out">
+            <img src="images/Gallery-1.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent"></div>
+            <p
+              class="absolute bottom-5 left-5 right-5 font-['Space_Grotesk'] text-lg font-bold leading-tight text-white sm:text-xl lg:text-[26px]">
+              Still water, future foundations</p>
+          </article>
+
+          <!-- Slide 2 -->
+          <article
+            class="gallery-card relative aspect-[3/4] overflow-hidden rounded-[28px] lg:absolute lg:left-[calc(50%-179px)] lg:top-[27px] lg:aspect-auto lg:h-[485px] lg:w-[358px] lg:transition-[transform,opacity] lg:duration-700 lg:ease-in-out">
+            <img src="images/Gallery-2.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent"></div>
+            <p
+              class="absolute bottom-5 left-5 right-5 font-['Space_Grotesk'] text-lg font-bold leading-tight text-white sm:text-xl lg:text-[26px]">
+              Open land before the city</p>
+          </article>
+
+          <!-- Slide 3 (shurute majhkhane ei ta thakbe) -->
+          <article
+            class="gallery-card relative aspect-[3/4] overflow-hidden rounded-[28px] lg:absolute lg:left-[calc(50%-179px)] lg:top-[27px] lg:aspect-auto lg:h-[485px] lg:w-[358px] lg:transition-[transform,opacity] lg:duration-700 lg:ease-in-out">
+            <img src="images/Gallery-3.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent"></div>
+            <p
+              class="absolute bottom-5 left-5 right-5 font-['Space_Grotesk'] text-lg font-bold leading-tight text-white sm:text-xl lg:text-[26px]">
+              Mapping the land before the city arrives</p>
+          </article>
+
+          <!-- Slide 4 -->
+          <article
+            class="gallery-card relative aspect-[3/4] overflow-hidden rounded-[28px] lg:absolute lg:left-[calc(50%-179px)] lg:top-[27px] lg:aspect-auto lg:h-[485px] lg:w-[358px] lg:transition-[transform,opacity] lg:duration-700 lg:ease-in-out">
+            <img src="images/Gallery-4.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent"></div>
+            <p
+              class="absolute bottom-5 left-5 right-5 font-['Space_Grotesk'] text-lg font-bold leading-tight text-white sm:text-xl lg:text-[26px]">
+              Visualizing the master plan</p>
+          </article>
+
+          <!-- Slide 5 -->
+          <article
+            class="gallery-card relative aspect-[3/4] overflow-hidden rounded-[28px] lg:absolute lg:left-[calc(50%-179px)] lg:top-[27px] lg:aspect-auto lg:h-[485px] lg:w-[358px] lg:transition-[transform,opacity] lg:duration-700 lg:ease-in-out">
+            <img src="images/hero-banner.jpeg" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent"></div>
+            <p
+              class="absolute bottom-5 left-5 right-5 font-['Space_Grotesk'] text-lg font-bold leading-tight text-white sm:text-xl lg:text-[26px]">
+              Mapping land into legacy</p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY IMAGE MODAL ================= -->
+  <div id="gallery-modal" role="dialog" aria-modal="true" aria-label="Image preview"
+    class="pointer-events-none fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 opacity-0 transition-opacity duration-300 sm:p-8">
+
+    <!-- Close button -->
+    <button id="gallery-modal-close" type="button" aria-label="Close preview"
+      class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/15 text-lg text-white transition hover:bg-white/30 sm:right-6 sm:top-6 sm:h-11 sm:w-11">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Image + caption -->
+    <figure id="gallery-modal-box"
+      class="flex max-h-full max-w-5xl scale-95 flex-col items-center gap-3 transition-transform duration-300">
+      <img id="gallery-modal-img" src="" alt=""
+        class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl sm:rounded-2xl" />
+      <figcaption id="gallery-modal-caption"
+        class="text-center font-['Space_Grotesk'] text-sm text-white/90 sm:text-base"></figcaption>
+    </figure>
+  </div>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white border-t border-[#E5E5E5] pt-12 pb-6 px-6 md:px-16 lg:px-24">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="assets/images/logo/R_City_logo.svg" alt="Purbachal Royal City Logo" class="h-9 w-auto" />
+          </div>
+          <p class="text-[#828282] text-sm leading-relaxed">
+            A data-driven view into Purbachal Royal City's plots, projects,
+            and payment plans.
+          </p>
+        </div>
+
+        <!-- Platform -->
+        <div>
+          <h4 class="text-[#1D1D1D] text-xs font-bold uppercase tracking-wider mb-4">
+            Platform
+          </h4>
+          <ul class="space-y-2 text-[#828282] text-sm">
+            <li><a href="#" class="footer-link">Plots</a></li>
+            <li><a href="#" class="footer-link">Master Plan</a></li>
+            <li><a href="#" class="footer-link">Lifestyle</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="text-[#1D1D1D] text-xs font-bold uppercase tracking-wider mb-4">
+            Company
+          </h4>
+          <ul class="space-y-2 text-[#828282] text-sm">
+            <li><a href="#" class="footer-link">About</a></li>
+            <li><a href="#" class="footer-link">Gallery</a></li>
+            <li><a href="#" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 class="text-[#1D1D1D] text-xs font-bold uppercase tracking-wider mb-4">
+            Legal
+          </h4>
+          <ul class="space-y-2 text-[#828282] text-sm">
+            <li><a href="#" class="footer-link">FAQ</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-[#333333] pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-[#8A8A88] text-xs">� 2026 Purbachal Royal City</p>
+        <div class="flex gap-4 text-[#8A8A88] text-sm items-center">
+          <a href="#" class="social-link inline-flex items-center gap-1.5"><i class="fab fa-facebook-f"></i>
+            Facebook</a>
+          <a href="#" class="social-link inline-flex items-center gap-1.5"><i class="fab fa-instagram"></i>
+            Instagram</a>
+          <a href="#" class="social-link inline-flex items-center gap-1.5"><i class="fab fa-linkedin-in"></i>
+            LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/8802222274358" target="_blank"
+    class="whatsapp-float fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:bg-green-600 transition-all hover:scale-110 group">
+    <i class="fab fa-whatsapp"></i>
+    <span
+      class="whatsapp-tooltip absolute right-full mr-4 bg-navy text-white px-4 py-2 rounded-lg text-sm font-bangla whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+      ?????? ???? ??? ????
+    </span>
+  </a>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/hero.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/hero-slider.js"></script>
+</body>
+
 </html>

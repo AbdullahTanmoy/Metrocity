@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Features</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+
+<!-- Tailwind Play CDN (for a real project, use your own Tailwind build and move the config/CSS below into it) -->
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+          sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          navy: '#2a2b8e',
+          gold: '#f5c400',
+        },
+      },
+    },
+  };
+</script>
+
+<style type="text/tailwindcss">
+  @layer components {
+    /* one feature = circle (.disc) + half ring (.ring) + label with dotted connector */
+    .feat   { @apply relative mb-20 shrink-0 md:mb-0; width: var(--d); height: var(--d); }
+    .ring   { @apply absolute rounded-full; inset: -19.5%; background: var(--c); clip-path: inset(0 0 50% 0); }
+    .disc   { @apply absolute inset-0 grid place-items-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,.22)]; }
+    .ico    { @apply w-[46%] fill-none stroke-navy; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .ico text { @apply fill-navy stroke-none font-sans; font-weight: 700; }
+    .label  { @apply absolute left-1/2 top-full z-10 mt-4 flex w-[150%] -translate-x-1/2 flex-col items-center text-center text-sm font-medium leading-snug text-white; text-wrap: balance; }
+    .line   { @apply hidden; }
+  }
+
+  @media (min-width: 768px) {
+    .label { margin-top: 0; width: 135%; font-size: clamp(.8rem, 1.15vw, 1.05rem); }
+    .line  { display: block; position: relative; width: 0; height: calc(var(--d) * .34);
+             border-left: 2px dotted rgba(255,255,255,.6); margin-bottom: .55rem; }
+    .line::after { content: ""; position: absolute; left: -6px; bottom: 0; width: 10px; height: 10px;
+             border-right: 1.5px solid rgba(255,255,255,.75); border-bottom: 1.5px solid rgba(255,255,255,.75);
+             background: transparent; transform: translateY(-3px) rotate(45deg); }
+
+    /* ring on the bottom half -> label goes above */
+    .feat[data-ring="bottom"] .ring  { clip-path: inset(50% 0 0 0); }
+    .feat[data-ring="bottom"] .label { top: auto; bottom: 100%; flex-direction: column-reverse; }
+    .feat[data-ring="bottom"] .line  { margin-bottom: 0; margin-top: .55rem; }
+    .feat[data-ring="bottom"] .line::after { bottom: auto; top: 0; transform: translateY(3px) rotate(-135deg); }
+  }
+</style>
+</head>
+
+<body class="bg-black font-sans antialiased">
+
+<section class="relative isolate overflow-hidden py-14 text-white md:py-24">
+
+  <!-- Background photo: replace the URL with your aerial image -->
+  <div class="absolute inset-0 -z-20 bg-[#4a4037] bg-cover bg-center"
+       style="background-image:url('images/aerial-view.jpg')"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/45 via-black/55 to-black/70"></div>
+
+  <div class="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-[6.9%]">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[.22em] text-gold sm:text-sm">
+      <span class="h-px w-6 bg-gold"></span>Specifications
+    </div>
+    <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">Project Features</h2>
+
+    <!-- ============ PLOTS ============ -->
+    <div class="mt-10 flex items-center gap-4 md:mt-14">
+      <svg class="h-9 w-9 shrink-0 fill-green-600 md:h-12 md:w-12" viewBox="0 0 24 24"><path d="M12 0c.9 7 5 11.100 12 12-7 .9-11.100 5-12 12-.9-7-5-11.100-12-12 7-.9 11.100-5 12-12z"/></svg>
+      <h3 class="font-serif text-3xl font-semibold md:text-4xl">Plots</h3>
+    </div>
+
+    <ul class="mt-10 flex flex-wrap justify-center gap-x-10 [--d:104px] sm:[--d:120px]
+               md:mt-0 md:flex-nowrap md:gap-x-[calc(var(--d)*.2)] md:[--d:min(13vw,210px)]
+               md:pb-[calc(var(--d)*.34+5rem)] md:pt-[calc(var(--d)*.34+3.5rem)]">
+
+      <li class="feat" style="--c:#ff0a0a" data-ring="top">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M6 56h52M12 56V28h14v28M26 56V10h20v44M17 34h4M17 40h4M17 46h4M32 17h8M32 24h8M32 31h8M32 38h8M32 45h8M36 56v-6h4v6"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Residential Plots of Various Sizes</span></span>
+      </li>
+
+      <li class="feat" style="--c:#ffd800" data-ring="bottom">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M14 56V26h24v30M38 56V36h12v20M8 56h48M19 32h4M27 32h4M19 38h4M27 38h4M19 44h4M27 44h4M42 41h4M42 47h4M25 56v-6h4v6"/><text x="8" y="23" font-size="8.5" transform="rotate(-18 8 23)">OFFICE</text></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Commercial Plots</span></span>
+      </li>
+
+      <li class="feat" style="--c:#28288f" data-ring="top">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M32 7a7 7 0 0 1 7 7c0 5-7 12-7 12s-7-7-7-12a7 7 0 0 1 7-7zM6 56h52M10 56V36h12v20M42 56V36h12v20M22 56V28h20v28M16 42h2M16 48h2M46 42h2M46 48h2M28 36h2M34 36h2M28 42h2M34 42h2M29 56v-6h6v6"/><circle cx="32" cy="14" r="2.5"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Shopping Complex</span></span>
+      </li>
+
+      <li class="feat" style="--c:#fb7425" data-ring="bottom">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M6 56h52M8 56V32h10v24M46 56V32h10v24M8 32l5-8 5 8M46 32l5-8 5 8M13 24v-5M51 24v-5M18 56V42h28v14M22 42c0-8 4-13 10-13s10 5 10 13M32 29v-6M27 56v-7a5 5 0 0 1 10 0v7"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Mosque &amp; Graveyard</span></span>
+      </li>
+
+      <li class="feat" style="--c:#16a34a" data-ring="top">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M8 38l13-14 8 8 7-8 7 8 6-6 8 12M10 20a4 4 0 0 1 8 0M14 11v2M8 14l1.500 1.500M20 14l-1.500 1.500M30 50V38M30 38l-7 12h7M18 52h20l-3 3H21zM8 58h12M24 58h6M34 58h22M38 46h6M48 46h8M44 42h10"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Lake</span></span>
+      </li>
+    </ul>
+
+    <!-- ============ AMENITIES ============ -->
+    <div class="mt-4 flex items-center gap-4 md:mt-6">
+      <svg class="h-9 w-9 shrink-0 fill-green-600 md:h-12 md:w-12" viewBox="0 0 24 24"><path d="M12 0c.9 7 5 11.100 12 12-7 .9-11.100 5-12 12-.9-7-5-11.100-12-12 7-.9 11.100-5 12-12z"/></svg>
+      <h3 class="font-serif text-3xl font-semibold md:text-4xl">Amenities</h3>
+    </div>
+
+    <ul class="mt-10 flex flex-wrap justify-center gap-x-10 [--d:104px] sm:[--d:120px]
+               md:mt-0 md:flex-nowrap md:gap-x-[calc(var(--d)*.2)] md:[--d:min(13vw,210px)]
+               md:pb-[calc(var(--d)*.34+5rem)] md:pt-[calc(var(--d)*.34+4.5rem)]">
+
+      <li class="feat" style="--c:#16a34a" data-ring="bottom">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M12 56V24h40v32M6 56h52M24 24V12h16v12M32 13v10M27 18h10M26 56V47h12v9M17 32h4M17 38h4M17 44h4M43 32h4M43 38h4M43 44h4M27 32h10M27 38h10"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Hospital</span></span>
+      </li>
+
+      <li class="feat" style="--c:#fb7425" data-ring="top">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M14 31L32 12l18 19M20 31v10M44 31v10M26 41V31h12v10M29 41v-5h6v5M6 57h52M10 41h44v10H10zM12 51v6M52 51v6"/><text x="32" y="48.800" font-size="7.500" text-anchor="middle">COLLEGE</text></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>College</span></span>
+      </li>
+
+      <li class="feat" style="--c:#28288f" data-ring="bottom">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M10 19l22-8 22 8-22 8zM20 24v7c0 2 5 4 12 4s12-2 12-4v-7M54 20v10M14 56V40h36v16M8 56h48M20 46h4M40 46h4M20 51h4M40 51h4M29 56v-8h6v8"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>University</span></span>
+      </li>
+
+      <li class="feat" style="--c:#ffd800" data-ring="top">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M14 18h32M30 18v5M40 29h14l2-7M22 38h20M26 34v4M38 34v4"/><ellipse cx="30" cy="29" rx="11" ry="6"/><ellipse cx="32" cy="51" rx="21" ry="6"/><path d="M27 48v6M37 48v6M27 51h10"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Helipad</span></span>
+      </li>
+
+      <li class="feat" style="--c:#ff0a0a" data-ring="bottom">
+        <span class="ring"></span>
+        <span class="disc">
+          <svg class="ico" viewBox="0 0 64 64"><path d="M8 56V28h10v28M22 56V18h10v38M36 56V30h18v26M36 30c0-8 4-12 9-12s9 4 9 12M6 56h52M12 34h2M12 40h2M26 24h2M26 30h2M40 42h10M40 48h10M18 22h4M32 24h4M24 18v-8h14v8M45 18v-6"/></svg>
+        </span>
+        <span class="label"><i class="line"></i><span>Modern Water Treatment Plant</span></span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+</body>
+</html>

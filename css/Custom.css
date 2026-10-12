@@ -141,6 +141,55 @@ body {
     width: 16px;
 }
 
+
+/* ===== NAVBAR: scroll korle (white background) er style ===== */
+
+/* menu er lekha dark hobe */
+.navbar-scrolled .nav-link {
+    color: #171818;
+}
+
+/* hover/active e ager moto halka sobuj pill thakbe, lekha dark */
+.navbar-scrolled .nav-link:hover,
+.navbar-scrolled .nav-link.active {
+    color: #171818;
+    background: #E8F6ED;
+}
+
+/* Book Now button: white er upor white na hoye navy hobe */
+.navbar-scrolled nav .btn {
+    background-color: #262B86 !important;
+    color: #fff !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-scrolled nav .btn:hover {
+    background-color: #1e226b !important;
+}
+
+/* Hamburger line: shurute white (hero er upor), scroll korle navy */
+#hamburger span {
+    background-color: #fff !important;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-scrolled #hamburger span {
+    background-color: #262B86 !important;
+}
+
+/* shurute white logo, scroll korle colored logo */
+.logo-dark {
+    display: none;
+}
+
+.navbar-scrolled .logo-light {
+    display: none;
+}
+
+.navbar-scrolled .logo-dark {
+    display: block;
+}
+
 /* ===== HERO ===== */
 .hero-gradient {
     background:
@@ -714,4 +763,188 @@ body.menu-open #navbar {
     .plot-card .plot-image-area {
         height: 11rem;
     }
+}
+
+
+
+
+.project-features{
+  position: relative;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 64px 0;
+  overflow: hidden;
+}
+
+.pf__overlay{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,.55);
+}
+
+.pf__wrap{
+  position: relative;
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.pf__kicker{
+  font-size: 12px;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 10px;
+}
+.pf__title{
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 22px;
+}
+
+.pf__group-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin: 18px 0 18px;
+}
+.pf__group-title--mt{ margin-top: 34px; }
+
+.pf__group-title h3{
+  margin:0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.pf__star{
+  width: 10px; height: 10px;
+  background: #38d07a;
+  transform: rotate(45deg);
+  display:inline-block;
+}
+
+/* GRID: Desktop 5, Tablet 2, Mobile 1 */
+.pf__grid{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 34px 26px;
+  align-items: start;
+}
+
+/* Item */
+.pf-item{
+  position: relative;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  min-height: 210px;
+}
+
+/* label position variants */
+.pf-item--label-top{
+  padding-top: 34px;
+}
+.pf-item--label-bottom{
+  padding-bottom: 34px;
+}
+
+.pf-item__label{
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(255,255,255,.9);
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
+  max-width: 170px;
+}
+
+/* dashed connector (top/bottom) */
+.pf-item--label-top::before,
+.pf-item--label-bottom::before{
+  content:"";
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  border-left: 2px dotted rgba(255,255,255,.55);
+  height: 28px;
+}
+
+.pf-item--label-top::before{ top: 6px; }
+.pf-item--label-bottom::before{ bottom: 6px; }
+
+.pf-item--label-top .pf-item__label{ position:absolute; top: 0; }
+.pf-item--label-bottom .pf-item__label{ position:absolute; bottom: 0; }
+
+/* RING component */
+.ring{
+  --c: #ff3b30;
+  --size: 132px;
+  --w: 16px; /* ring thickness */
+
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display:grid;
+  place-items:center;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+  position: relative;
+
+  /* Mask makes it a ring */
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--w)),
+    #000 calc(100% - var(--w) + 1px)
+  );
+          mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--w)),
+    #000 calc(100% - var(--w) + 1px)
+  );
+}
+
+/* top half colored / bottom half colored */
+.ring--top{
+  background: conic-gradient(from 180deg, transparent 0 180deg, var(--c) 180deg 360deg);
+}
+.ring--bottom{
+  background: conic-gradient(from 180deg, var(--c) 0 180deg, transparent 180deg 360deg);
+}
+
+.ring__inner{
+  -webkit-mask: none;
+          mask: none;
+  width: calc(var(--size) - (var(--w) * 2));
+  height: calc(var(--size) - (var(--w) * 2));
+  border-radius: 50%;
+  background: #fff;
+  display:grid;
+  place-items:center;
+  box-shadow: 0 8px 16px rgba(0,0,0,.22);
+}
+
+/* icon svg */
+.icon{
+  width: 56px;
+  height: 56px;
+  stroke: #2b35b7;
+  stroke-width: 2;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Colors */
+.ring--red{ --c:#ff2a2a; }
+.ring--yellow{ --c:#ffd400; }
+.ring--blue{ --c:#222a86; }
+.ring--orange{ --c:#ff7a1a; }
+.ring--green{ --c:#16b45f; }
+
+/* Responsive sizes + columns */
+@media (max-width: 991px){ /* tablet */
+  .pf__grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ring{ --size: 128px; }
+  .pf-item{ min-height: 200px; }
+}
+
+@media (max-width: 575px){ /* mobile */
+  .pf__grid{ grid-template-columns: 1fr; }
+  .pf-item{ min-height: 190px; }
+  .pf-item__label{ max-width: 240px; font-size: 13px; }
 }
